@@ -21,16 +21,17 @@ composer install
 
 ## Usage
 
-Run `nb-grabber.php` script. Provide values for its two mandatory arguments.
-
-These arguments are:
-
-1. **`<agencyname>`:** The machine name of the transit authority that you want to query. E.g. `actransit` for "AC Transit".
-2. **`<format>`:** Either `xml` or `csv-schedule` are allowed.
-
 ```bash
 php nb-grabber.php <agencyname> <format>
 ```
+
+Run the _nb-grabber.php_ script whilst providing values for its two mandatory arguments.
+
+These arguments are:
+
+1. **`<agencyname>`:** The machine name of the transit authority that you want to query. E.g. _actransit_ for "AC Transit".
+2. **`<format>`:** Allowed values are _xml_ and _csv-schedule_.
+
 
 ### Example
 
