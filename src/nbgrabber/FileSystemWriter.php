@@ -45,9 +45,9 @@ abstract class FileSystemWriter implements Writer
      */
     abstract protected function _getOutputDirPrefix();
 
-    public function printMeta()
+    public function printMeta ($agency)
     {
-        $dirpath = $this->_buildPath(array($this->_getOutputDirPrefix()));
+        $dirpath = $this->_buildPath(array($this->_getOutputDirPrefix(), $agency));
         $filepath = "{$dirpath}/README.md";
         $fh = fopen($filepath, "w+");
         fputs($fh, "Generated with [nb-grabber](https://github.com/stopfstedt/nb-grabber) at " . date("Y-m-d H:i:s") . ".\n");
