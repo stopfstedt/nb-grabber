@@ -80,9 +80,9 @@ class ApiClient
     protected function _buildRequestUrl ($command, array $args = array())
     {
         $url = $this->_url;
-        $url .= '?command=' . rawurldecode($command);
+        $url .= '?command=' . rawurlencode($command);
         foreach ($args as $key => $arg) {
-            $url .= "&" . rawurldecode($key) . '=' . rawurldecode($arg);
+            $url .= "&" . rawurlencode($key) . '=' . rawurlencode($arg);
         }
         return $url;
     }
