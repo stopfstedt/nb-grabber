@@ -5,7 +5,7 @@ Grabs the routes and schedules for a given transport agency from the [NextBus AP
 
 ## Requirements
 
-PHP 5.4+ with the `curl` and `SimpleXML` extensions enabled.
+PHP 5.3.2+ with the `curl` and `SimpleXML` extensions enabled.
 
 
 ## Installation
