@@ -29,5 +29,6 @@ class Grabber
             $doc2 = $this->_client->getSchedule($this->_agency, $routeTag);
             $this->_writer->printSchedule($doc2, $this->_agency, $routeTag);
         }
+        $this->_writer->printMeta();
     }
 }

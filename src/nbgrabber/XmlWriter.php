@@ -9,31 +9,12 @@
 namespace nbgrabber;
 
 
-class XmlWriter implements Writer
+class XmlWriter extends FileSystemWriter
 {
-
-    protected $_outputDirPrefix = '_xml';
-
-    protected $_basedir;
-
-    public function __construct ($basedir)
-    {
-
-        if (! is_dir($basedir)) {
-            throw new \Exception("{$basedir} is not a directory.");
-        }
-
-        if (! is_writable($basedir)) {
-            throw new \Exception("{$basedir} is not writable.");
-        }
-
-        $this->_basedir = $basedir;
-
-    }
 
     public function printRouteList(\SimpleXMLElement $doc, $agency)
     {
-        $dirpath = $this->_buildPath(array($this->_outputDirPrefix, $agency));
+        $dirpath = $this->_buildPath(array($this->_getOutputDirPrefix(), $agency));
         if (! file_exists($dirpath)) {
             mkdir($dirpath, 0755, true);
         }
@@ -43,7 +24,7 @@ class XmlWriter implements Writer
 
     public function printRouteConfig(\SimpleXMLElement $doc, $agency, $route)
     {
-        $dirpath = $this->_buildPath(array($this->_outputDirPrefix, $agency, $route));
+        $dirpath = $this->_buildPath(array($this->_getOutputDirPrefix(), $agency, $route));
         if (! file_exists($dirpath)) {
             mkdir($dirpath, 0755, true);
         }
@@ -53,7 +34,7 @@ class XmlWriter implements Writer
 
     public function printSchedule(\SimpleXMLElement $doc, $agency, $route)
     {
-        $dirpath = $this->_buildPath(array($this->_outputDirPrefix, $agency, $route));
+        $dirpath = $this->_buildPath(array($this->_getOutputDirPrefix(), $agency, $route));
         if (! file_exists($dirpath)) {
             mkdir($dirpath, 0755, true);
         }
@@ -61,12 +42,8 @@ class XmlWriter implements Writer
         $doc->saveXML($filepath);
     }
 
-    protected function _buildPath (array $segments = array())
+    protected function _getOutputDirPrefix ()
     {
-        $path = $this->_basedir;
-        foreach ($segments as $segment) {
-            $path .= '/' . basename($segment);
-        }
-        return $path;
+        return "_xml";
     }
 }
