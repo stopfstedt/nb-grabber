@@ -21,24 +21,37 @@ composer install
 
 ## Usage
 
+Run `nb-grabber.php` script. Provide values for its two mandatory arguments.
+
+These arguments are:
+
+1. **`<agencyname>`:** The machine name of the transit authority that you want to query. E.g. `actransit` for "AC Transit".
+2. **`<format>`:** Either `xml` or `csv-schedule` are allowed.
+
 ```bash
-php nb-grabber.php <agencyname> (xml|csv-schedule)
+php nb-grabber.php <agencyname> <format>
 ```
 
 ### Example
 
-To grab the routes, schedule etc for "AC Transit",  run this:
+To grab the routes and schedules for "AC Transit",  run this:
 
 ```bash
 php nb-grabber.php actransit xml
 ```
 
-To print the schedule for all "AC Transit" routes as CSV files, run this:
+To print the schedules for all "AC Transit" routes as CSV files, run this:
 
 ```bash
 php nb-grabber.php actransit csv-schedule
 ```
 
 ## Output
+
+### XML Routes and Schedules
+
+_todo_
+
+### CSV Schedules
 
 _todo_
