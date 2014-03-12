@@ -29,8 +29,8 @@ Run the _nb-grabber.php_ script whilst providing values for its two mandatory ar
 
 These arguments are:
 
-1. **`<agencyname>`:** The machine name of the transit authority that you want to query. E.g. _actransit_ for "AC Transit".
-2. **`<format>`:** Allowed values are _xml_ and _csv-schedule_.
+1. **<agencyname>** The machine name of the transit agency that you want to query, e.g. _actransit_ for "AC Transit".
+2. **<format>** Allowed values are _xml_ and _csv-schedule_.
 
 
 ### Example
