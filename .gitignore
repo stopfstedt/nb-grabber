@@ -4,4 +4,5 @@
 *.diff
 .idea
 
+/vendor
 /_*
