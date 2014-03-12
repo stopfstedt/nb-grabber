@@ -22,15 +22,21 @@ composer install
 ## Usage
 
 ```bash
-php nb-grabber.php <agencyname>
+php nb-grabber.php <agencyname> (xml|csv-schedule)
 ```
 
 ### Example
 
-To grab the routes, schedule etc for "AC Transit", pass `actransit` to the `nb-grabber.php` script.
+To grab the routes, schedule etc for "AC Transit",  run this:
 
 ```bash
-php nb-grabber.php actransit
+php nb-grabber.php actransit xml
+```
+
+To print the schedule for all "AC Transit" routes as CSV files, run this:
+
+```bash
+php nb-grabber.php actransit csv-schedule
 ```
 
 ## Output
