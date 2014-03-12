@@ -37,18 +37,28 @@ class XmlWriter implements Writer
         if (! file_exists($dirpath)) {
             mkdir($dirpath, 0755, true);
         }
-        $filepath = $dirpath . "/routelist.xml";
+        $filepath = $dirpath . "/routes.xml";
         $doc->saveXML($filepath);
     }
 
     public function printRouteConfig(\SimpleXMLElement $doc, $agency, $route)
     {
-        // TODO: Implement printRouteConfig() method.
+        $dirpath = $this->_buildPath(array($this->_outputDirPrefix, $agency, $route));
+        if (! file_exists($dirpath)) {
+            mkdir($dirpath, 0755, true);
+        }
+        $filepath = $dirpath . "/route.xml";
+        $doc->saveXML($filepath);
     }
 
     public function printSchedule(\SimpleXMLElement $doc, $agency, $route)
     {
-        // TODO: Implement printSchedule() method.
+        $dirpath = $this->_buildPath(array($this->_outputDirPrefix, $agency, $route));
+        if (! file_exists($dirpath)) {
+            mkdir($dirpath, 0755, true);
+        }
+        $filepath = $dirpath . "/schedule.xml";
+        $doc->saveXML($filepath);
     }
 
     protected function _buildPath (array $segments = array())
