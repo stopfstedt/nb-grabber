@@ -38,7 +38,7 @@ class ApiClient
 
     public function getSchedule ($agencyTag, $routeTag)
     {
-        $url = $this->_buildRequestUrl(self::COMMAND_ROUTECONFIG, array('a' => $agencyTag, 'r' => $routeTag));
+        $url = $this->_buildRequestUrl(self::COMMAND_SCHEDULE, array('a' => $agencyTag, 'r' => $routeTag));
         return $this->_request($url);
     }
 
