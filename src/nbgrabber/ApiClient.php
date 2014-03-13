@@ -2,25 +2,49 @@
 
 namespace nbgrabber;
 
+/**
+ * Class ApiClient
+ * @package nbgrabber
+ */
 class ApiClient
 {
+    /**
+     * @var string
+     */
     const API_ENDPOINT = 'http://webservices.nextbus.com/service/publicXMLFeed';
 
+    /**
+     * @var string
+     */
     const COMMAND_ROUTELIST = 'routeList';
 
+    /**
+     * @var string
+     */
     const COMMAND_ROUTECONFIG = 'routeConfig';
 
+    /**
+     * @var string
+     */
     const COMMAND_SCHEDULE = 'schedule';
 
+    /**
+     * @var string
+     */
     protected $_url;
 
+    /**
+     * @param string $url
+     */
     public function __construct ($url = ApiClient::API_ENDPOINT)
     {
         $this->_url = $url;
     }
 
     /**
+     * @param string $agencyTag
      * @return \SimpleXMLElement
+     * @throws \Exception
      */
     public function getRouteList ($agencyTag)
     {
@@ -29,13 +53,25 @@ class ApiClient
 
     }
 
-
+    /**
+     * @param string $agencyTag
+     * @param string $routeTag
+     * @return \SimpleXMLElement
+     * @throws \Exception
+     *
+     */
     public function getRouteConfig ($agencyTag, $routeTag)
     {
         $url = $this->_buildRequestUrl(self::COMMAND_ROUTECONFIG, array('a' => $agencyTag, 'r' => $routeTag));
         return $this->_request($url);
     }
 
+    /**
+     * @param string $agencyTag
+     * @param string $routeTag
+     * @return \SimpleXMLElement
+     * @throws \Exception
+     */
     public function getSchedule ($agencyTag, $routeTag)
     {
         $url = $this->_buildRequestUrl(self::COMMAND_SCHEDULE, array('a' => $agencyTag, 'r' => $routeTag));
@@ -43,9 +79,9 @@ class ApiClient
     }
 
     /**
-     * @param $url
+     * @param string $url
      * @return \SimpleXMLElement
-     * @throws Exception
+     * @throws \Exception
      *
      * @link https://gist.github.com/betweenbrain/5405671
      */
@@ -86,5 +122,4 @@ class ApiClient
         }
         return $url;
     }
-
 }

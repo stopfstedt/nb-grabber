@@ -2,19 +2,31 @@
 
 namespace nbgrabber;
 
+/**
+ * Class CsvSchedulePrinter
+ * @package nbgrabber
+ */
 class CsvSchedulePrinter extends FileSystemWriter
 {
-
+    /**
+     * @see Writer::printRouteList()
+     */
     public function printRouteList (\SimpleXMLElement $doc, $agency)
     {
         // not implemented
     }
 
+    /**
+     * @see Writer::printRouteConfig()
+     */
     public function printRouteConfig (\SimpleXMLElement $doc, $agency, $route)
     {
         // not implemented
     }
 
+    /**
+     * @see Writer::printSchedule()
+     */
     public function printSchedule (\SimpleXMLElement $doc, $agency, $route)
     {
         $dirpath = $this->_buildPath(array($this->_getOutputDirPrefix(), $agency, $route));
@@ -44,8 +56,11 @@ class CsvSchedulePrinter extends FileSystemWriter
         }
     }
 
-   protected function _getOutputDirPrefix ()
-   {
-       return "_csvschedule";
-   }
+    /**
+     * @see FileSystemPrinter::_getOutputDirPrefix()
+     */
+    protected function _getOutputDirPrefix ()
+    {
+        return "_csvschedule";
+    }
 }

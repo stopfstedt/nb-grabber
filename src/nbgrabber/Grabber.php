@@ -2,15 +2,31 @@
 
 namespace nbgrabber;
 
+/**
+ * Class Grabber
+ * @package nbgrabber
+ */
 class Grabber
 {
-
+    /**
+     * @var string
+     */
     protected $_agency;
 
+    /**
+     * @var Writer
+     */
     protected $_writer;
 
+    /**
+     * @var ApiClient
+     */
     protected $_client;
 
+    /**
+     * @param Writer $writer
+     * @param $agency
+     */
     public function __construct (Writer $writer, $agency)
     {
         $this->_writer = $writer;
@@ -18,6 +34,9 @@ class Grabber
         $this->_client = new ApiClient();
     }
 
+    /**
+     * @throws Exception
+     */
     public function export ()
     {
         $doc = $this->_client->getRouteList($this->_agency);

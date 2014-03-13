@@ -1,17 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: stefan
- * Date: 3/11/14
- * Time: 3:54 PM
- */
 
 namespace nbgrabber;
 
-
+/**
+ * Class XmlWriter
+ * @package nbgrabber
+ */
 class XmlWriter extends FileSystemWriter
 {
 
+    /**
+     * @see Writer::printRouteList()
+     */
     public function printRouteList(\SimpleXMLElement $doc, $agency)
     {
         $dirpath = $this->_buildPath(array($this->_getOutputDirPrefix(), $agency));
@@ -22,6 +22,9 @@ class XmlWriter extends FileSystemWriter
         $doc->saveXML($filepath);
     }
 
+    /**
+     * @see Writer::printRouteConfig()
+     */
     public function printRouteConfig(\SimpleXMLElement $doc, $agency, $route)
     {
         $dirpath = $this->_buildPath(array($this->_getOutputDirPrefix(), $agency, $route));
@@ -32,6 +35,9 @@ class XmlWriter extends FileSystemWriter
         $doc->saveXML($filepath);
     }
 
+    /**
+     * @see Writer::printSchedule()
+     */
     public function printSchedule(\SimpleXMLElement $doc, $agency, $route)
     {
         $dirpath = $this->_buildPath(array($this->_getOutputDirPrefix(), $agency, $route));
@@ -42,6 +48,9 @@ class XmlWriter extends FileSystemWriter
         $doc->saveXML($filepath);
     }
 
+    /**
+     * @see FileSystemWriter::_getOutputDirPrefix()
+     */
     protected function _getOutputDirPrefix ()
     {
         return "_xml";
