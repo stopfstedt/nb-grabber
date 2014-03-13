@@ -1,6 +1,6 @@
 <?php
 
-$usage = "Usage: php nb-grabber <agency-name>\n [xml|csv-schedule]";
+$usage = "Usage: php nb-grabber <agency-name>\n (xml|csv-schedule)";
 
 if (3 !== $argc) {
     die($usage);
